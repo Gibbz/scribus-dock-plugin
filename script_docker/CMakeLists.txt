@@ -3,21 +3,26 @@ ${CMAKE_SOURCE_DIR}
 ${CMAKE_SOURCE_DIR}/scribus
 )
 
+set(PLUGIN_UI_SRC
+    scriptdocker.ui
+)
+
 set(PLUGIN_MOC_CLASSES
-plugin.h
-scriptdocker.h
+    plugin.h
+    scriptdocker.h
 )
 
 set(PLUGIN_SOURCES
-plugin.cpp
-scriptdocker.cpp
+    plugin.cpp
+    scriptdocker.cpp
 )
 
 set(SCRIBUS_SCRIPT_DOCKER "script_docker")
 
+QT5_WRAP_UI(PLUGIN_UI_SOURCES ${PLUGIN_UI_SRC} )
 QT5_WRAP_CPP(PLUGIN_MOC_SOURCES ${PLUGIN_MOC_CLASSES})
 
-add_library(${SCRIBUS_SCRIPT_DOCKER} MODULE ${PLUGIN_SOURCES} ${PLUGIN_MOC_SOURCES})
+add_library(${SCRIBUS_SCRIPT_DOCKER} MODULE ${PLUGIN_SOURCES} ${PLUGIN_MOC_SOURCES} ${PLUGIN_UI_CPP} ${PLUGIN_UI_SOURCES})
 
 target_link_libraries(${SCRIBUS_SCRIPT_DOCKER} ${PLUGIN_LIBRARIES})
 

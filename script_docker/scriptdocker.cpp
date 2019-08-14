@@ -8,33 +8,26 @@
 #include <QLineEdit>
 #include <QLabel>
 
-// Initialize members here, if any
-/*
-ScriptDocker::ScriptDocker() : QObject(0)
+
+ScriptDocker::ScriptDocker( QWidget* parent) : ScDockPalette( parent, "ScriptDocker", nullptr)
 {
-}*/
+	//setupUi(this);
+	setObjectName(QString::fromLocal8Bit("ScriptDocker"));
+	setSizePolicy( QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum));
+	containerWidget = new QWidget(this);
 
 
-ScriptDocker::ScriptDocker(QWidget* parent, const char* name, Qt::WindowFlags f) : ScDockPalette(parent, name, f)
-{
-    //	resize( 220, 240 );
-    setMinimumSize( QSize( 220, 240 ) );
-    setObjectName(QString::fromLocal8Bit("Tree"));
-    setSizePolicy( QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum));
-    containerWidget = new QWidget(this);
+	QLabel *filterLabel = new QLabel( tr("Filter:") );
+
+	QGridLayout* layout = new QGridLayout;
+	layout->addWidget( filterLabel, 0, 0 );
+
+	layout->setContentsMargins( 3, 3, 3, 3);
+	containerWidget->setLayout( layout );
+	setWidget( containerWidget );
 
 
-    QLabel *filterLabel = new QLabel( tr("Filter:") );
-
-    QGridLayout* layout = new QGridLayout;
-    layout->addWidget( filterLabel, 0, 0 );
-
-    layout->setContentsMargins( 3, 3, 3, 3);
-    containerWidget->setLayout( layout );
-    setWidget( containerWidget );
-
-
-    // signals and slots connections
+	// signals and slots connections
 }
 
 
