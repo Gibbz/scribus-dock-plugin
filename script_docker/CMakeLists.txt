@@ -1,0 +1,30 @@
+include_directories(
+${CMAKE_SOURCE_DIR}
+${CMAKE_SOURCE_DIR}/scribus
+)
+
+set(PLUGIN_MOC_CLASSES
+plugin.h
+scriptdocker.h
+)
+
+set(PLUGIN_SOURCES
+plugin.cpp
+scriptdocker.cpp
+)
+
+set(SCRIBUS_SCRIPT_DOCKER "script_docker")
+
+QT5_WRAP_CPP(PLUGIN_MOC_SOURCES ${PLUGIN_MOC_CLASSES})
+
+add_library(${SCRIBUS_SCRIPT_DOCKER} MODULE ${PLUGIN_SOURCES} ${PLUGIN_MOC_SOURCES})
+
+target_link_libraries(${SCRIBUS_SCRIPT_DOCKER} ${PLUGIN_LIBRARIES})
+
+install(TARGETS ${SCRIBUS_SCRIPT_DOCKER}
+  LIBRARY
+  DESTINATION ${PLUGINDIR}
+  PERMISSIONS ${PLUGIN_PERMISSIONS}
+)
+
+# set_target_properties(${SCRIBUS_SCRIPT_DOCKER} PROPERTIES VERSION "0.0.0")
