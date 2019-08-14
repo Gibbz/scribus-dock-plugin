@@ -10,6 +10,7 @@ class QString;
 class ScribusDoc;
 class ScribusMainWindow;
 
+// https://forum.qt.io/topic/80898/expected-class-name-before-token-error/3
 class SCRIBUS_API ScriptDocker : public ScDockPalette, Ui::ScriptDocker
 {
 	Q_OBJECT
