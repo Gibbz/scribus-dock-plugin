@@ -1,16 +1,18 @@
 #ifndef SCRIPTDOCKER_H
 #define SCRIPTDOCKER_H
 
-#include <QObject>
-#include "scribusapi.h"
+//#include <QObject>
+#include "scribusapi.h" // in the file bellow!
 #include "ui/scdockpalette.h"
 #include "ui_scriptdocker.h"
 
-class QString;
+//class QString;
 class ScribusDoc;
 class ScribusMainWindow;
+class QObject;
 
 // https://forum.qt.io/topic/80898/expected-class-name-before-token-error/3
+//class SCRIBUS_API ScriptDocker : public QDockWidget, Ui::ScriptDocker
 class SCRIBUS_API ScriptDocker : public ScDockPalette, Ui::ScriptDocker
 {
 	Q_OBJECT
@@ -22,7 +24,7 @@ class SCRIBUS_API ScriptDocker : public ScDockPalette, Ui::ScriptDocker
 		void setMainWindow(ScribusMainWindow *mw);
 
 	protected:
-		//Ui::ScriptDocker ui;
+		//Ui::DockWidget* ui;
 		QWidget* containerWidget;
 		ScribusMainWindow* m_MainWindow;
 };

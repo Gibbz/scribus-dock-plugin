@@ -11,9 +11,11 @@
 
 ScriptDocker::ScriptDocker( QWidget* parent) : ScDockPalette( parent, "ScriptDocker", nullptr)
 {
-	//setupUi(this);
-	setObjectName(QString::fromLocal8Bit("ScriptDocker"));
-	setSizePolicy( QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum));
+	setupUi(this);
+	//setObjectName(QString::fromLocal8Bit("ScriptDocker"));
+	//setSizePolicy( QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum));
+
+	/*
 	containerWidget = new QWidget(this);
 
 
@@ -25,7 +27,7 @@ ScriptDocker::ScriptDocker( QWidget* parent) : ScDockPalette( parent, "ScriptDoc
 	layout->setContentsMargins( 3, 3, 3, 3);
 	containerWidget->setLayout( layout );
 	setWidget( containerWidget );
-
+	*/
 
 	// signals and slots connections
 }
